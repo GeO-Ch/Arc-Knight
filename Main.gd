@@ -3,6 +3,9 @@ extends Node
 
 export(PackedScene) var mob_scene
 var score
+# var high_score
+# var save_path = "user://savegame.save"
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -10,7 +13,9 @@ func _ready():
 
 
 func game_over():
+	
 	$ScoreTimer.stop()
+	# save_high_score(score)
 	$MobTimer.stop()
 	$HUD.show_game_over()
 
@@ -55,3 +60,23 @@ func _on_MobTimer_timeout():
 
 	# Spawn the mob by adding it to the Main scene.
 	add_child(mob)
+	
+
+# Save new high score
+#func save_high_score(score):
+#	var save_game = File.new()
+#	
+#	if save_game.file_exists(save_path):
+#		save_game.open(save_path, File.READ)
+#		high_score = save_game.get_var()
+#		save_game.close()
+#		
+#		if score > high_score:
+#			high_score = score
+#			save_game.open(save_path, File.WRITE)
+#			save_game.store_var(high_score)
+#			save_game.close()
+#	else:
+#		save_game.open(save_path, File.WRITE)
+#		save_game.store_var(score)
+#		save_game.close()
