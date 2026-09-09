@@ -63,7 +63,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 7 )
 animation = "state"
-frame = 1
+frame = 2
 playing = true
 __meta__ = {
 "_edit_group_": true,
